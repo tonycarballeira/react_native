@@ -12,6 +12,14 @@ var Text = React.Text;
 var View = React.View;
 var StyleSheet = React.StyleSheet;
 
+//BRINGING IN A MODULE YOU CREATED
+var DayItem = require('./src/day-item');
+
+
+//CONSTANT
+
+var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
 
 // A COMPONENT REPRESENTS SOMETHING WE WANT TO SHOW ON THE SCREEN OF OUR DEVICE
 
@@ -23,6 +31,7 @@ var Weekdays = React.createClass({
       <Text>
         Days of the week:
       </Text>
+      <DayItem />  //nesting the contents of day-item.js here
     </View>
   }
 });
