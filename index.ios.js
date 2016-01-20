@@ -26,14 +26,28 @@ var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'S
 // (2)  CREATE A REACT COMPONENT
 
 var Weekdays = React.createClass({
+
   render: function() {
+
     return <View style={styles.container}>
       <Text>
         Days of the week:
       </Text>
-      <DayItem day={DAYS[0]} />
-    </View>  
+      { this.days() }
+    </View> 
+
+  },
+
+  days: function() {
+
+    return DAYS.map(function(day, i){
+      
+      return <DayItem day={day} key={i}/>
+
+    });
+
   }
+
 });
 
 //  (3)  STYLE THE REACT COMPONENT
