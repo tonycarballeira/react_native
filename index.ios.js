@@ -27,24 +27,25 @@ var Weekdays = React.createClass({
   render: function() {
 
     return <View style={styles.container}>
-      <Text>
-        Days of the week:
-      </Text>
-      <Text>
-        { Moment().format('ddd') }
-      </Text>
-      { this.days() }
-    </View> 
+              { this.days() }
+           </View> 
 
   },
 
   days: function() {
     
-    var dayItems = [];
+    var daysItems = [];
 
     for(var i = 0; i < 7; i++){
+
       var day = Moment().add(i, 'days').format('dddd');
+
+      daysItems.push(
+        <DayItem day={day} daysUntil={i} key={i} /> 
+      )
     }
+
+    return daysItems
 
   }
 
