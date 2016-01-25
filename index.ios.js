@@ -1,6 +1,8 @@
 //EVERY FILE RUNS IN ITS OWN SANDBOX, THERE ARE NO GLOBAL VARIABLES, SO YOU HAVE TO REQUIRE STUFF IN
 // LIKE REACT IN THIS CASE
 
+var Moment = require('moment');
+
 //  (1)  IMPORT SOME CODE WE NEED   (REACT-NATIVE LIBRARY)
 
 var React = require('react-native');
@@ -16,11 +18,6 @@ var StyleSheet = React.StyleSheet;
 var DayItem = require('./src/day-item');
 
 
-//CONSTANT
-
-var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-
 // A COMPONENT REPRESENTS SOMETHING WE WANT TO SHOW ON THE SCREEN OF OUR DEVICE
 
 // (2)  CREATE A REACT COMPONENT
@@ -33,18 +30,21 @@ var Weekdays = React.createClass({
       <Text>
         Days of the week:
       </Text>
+      <Text>
+        { Moment().format('ddd') }
+      </Text>
       { this.days() }
     </View> 
 
   },
 
   days: function() {
+    
+    var dayItems = [];
 
-    return DAYS.map(function(day, i){
-
-      return <DayItem day={day} key={i} />
-
-    });
+    for(var i = 0; i < 7; i++){
+      var day = Moment().add(i, 'days').format('dddd');
+    }
 
   }
 
